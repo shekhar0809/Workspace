@@ -9,13 +9,13 @@ return matrices
 
 #include <stdio.h>
 
-
+/*
 int p = 0 ;
 int q = 0 ;
 
 void add_matrix(int mat3[p][q], int mat1[p][q], int mat2[p][q]);
 void subtract_matrix(int mat3[p][q], int mat1[p][q], int mat2[p][q]);
-
+*/
 
 int main(void)
 {
@@ -45,9 +45,9 @@ int main(void)
     
     printf("enter first matrix\n");
     
-    for ( int i = 1 ; i <= m1 ; i++ )
+    for ( int i = 0 ; i < m1 ; i++ )
     {
-        for ( int j = 1 ; j <= m2 ; j++ )
+        for ( int j = 0 ; j < m2 ; j++ )
         {
             scanf("%d", &mat1[i][j]);
         }
@@ -59,9 +59,9 @@ int main(void)
     
     printf("enter second matrix\n");
     
-    for ( int i = 1 ; i <= n1 ; i++ )
+    for ( int i = 0 ; i < n1 ; i++ )
     {
-        for ( int j = 1 ; j <= n2 ; j++ )
+        for ( int j = 0 ; j < n2 ; j++ )
         {
             scanf("%d", &mat2[i][j]);
         }
@@ -77,9 +77,9 @@ int main(void)
     //ensure correct input of mat1 and mat2
     printf("\nfirst matrix is \n");
     
-    for ( int i = 1 ; i <= m1 ; i++ )
+    for ( int i = 0 ; i < m1 ; i++ )
     {
-        for ( int j = 1 ; j <= m2 ; j++ )
+        for ( int j = 0 ; j < m2 ; j++ )
         {
             printf("%i  ", mat1[i][j]);
         }
@@ -88,9 +88,9 @@ int main(void)
     
     printf("\nsecond matrix is \n");
         
-    for ( int i = 1 ; i <= m1 ; i++ )
+    for ( int i = 0 ; i < m1 ; i++ )
     {
-        for ( int j = 1 ; j <= m2 ; j++ )
+        for ( int j = 0 ; j < m2 ; j++ )
         {
             printf("%i  ", mat2[i][j]);
         }
@@ -99,9 +99,57 @@ int main(void)
     
     printf("\n");
     
-    //empty array for addition
+    //add matrices
     
     int add_mat[m1][m2];
+    
+    for( int i = 0 ; i < m1 ; i++ )
+    {
+        for( int j = 0 ; j < m2 ; j++)
+        {
+            add_mat[i][j] = mat1[i][j] + mat2[i][j] ;
+        }
+    }
+    
+    //subtract matrices
+    
+    int subtract_mat[m1][m2];
+    
+    for( int i = 0 ; i < m1 ; i++ )
+    {
+        for( int j = 0 ; j < m2 ; j++)
+        {
+            subtract_mat[i][j] = mat1[i][j] - mat2[i][j] ;
+        }
+    }
+    
+    //output added and subtracted matrices
+    
+    for( int i = 0 ; i < m1 ; i++ )
+    {
+        for( int j = 0 ; j < m2 ; j++)
+        {
+            printf("%i  ", add_mat[i][j]);
+        }
+        printf("\n");
+    }
+    
+    printf("\n");
+    
+    for( int i = 0 ; i < m1 ; i++ )
+    {
+        for( int j = 0 ; j < m2 ; j++)
+        {
+            printf("%i  ", subtract_mat[i][j]);
+        }
+        printf("\n");
+    }
+    
+}
+    
+    //empty array for addition
+    
+/*    int add_mat[m1][m2];
     
     add_matrix(add_mat, mat1, mat2);
     
@@ -111,9 +159,9 @@ int main(void)
     
     // output added matrix
     
-    for ( int i = 1 ; i <= m1 ; i++ )
+    for ( int i = 0 ; i < m1 ; i++ )
     {
-        for ( int j = 1 ; j <= m2 ; j++ )
+        for ( int j = 0 ; j < m2 ; j++ )
         {
             printf("%i  ", add_mat[i][j]);
         }
@@ -124,23 +172,23 @@ int main(void)
             
     // output subtracted matrix
     
-    for ( int i = 1 ; i <= m1 ; i++ )
+    for ( int i = 0 ; i < m1 ; i++ )
     {
-        for ( int j = 1 ; j <= m2 ; j++ )
+        for ( int j = 0 ; j < m2 ; j++ )
         {
             printf("%i  ", subtract_mat[i][j]);
         }
         printf("\n");
     }
-    
-}
+   */ 
 
 
+/*
 void add_matrix(int mat3[p][q], int mat1[p][q], int mat2[p][q])
 {
-    for( int i = 1 ; i <= p ; i++ )
+    for( int i = 0 ; i < p ; i++ )
     {
-        for( int j = 1 ; i <= q ; j++)
+        for( int j = 0 ; j < q ; j++)
         {
             mat3[i][j] = mat1[i][j] + mat2[i][j] ;
         }
@@ -149,11 +197,12 @@ void add_matrix(int mat3[p][q], int mat1[p][q], int mat2[p][q])
 
 void subtract_matrix(int mat3[p][q], int mat1[p][q], int mat2[p][q])
 {
-    for( int i = 1 ; i <= p ; i++ )
+    for( int i = 0 ; i < p ; i++ )
     {
-        for( int j = 1 ; i <= q ; j++)
+        for( int j = 0 ; j < q ; j++)
         {
             mat3[i][j] = mat1[i][j] - mat2[i][j] ;
         }
     }
 }
+*/
