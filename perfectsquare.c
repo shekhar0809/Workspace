@@ -7,7 +7,8 @@ int main(void)
     
 /*
 
-compng up later
+coming up later
+to confirm that user enters only a 4 digit number
 
     printf("enter the 4 digits (0 - 9) of the number !\n");
     
@@ -59,9 +60,10 @@ compng up later
     }
     else
     {
-        printf("first two digits are not a perfect square\n");
+        printf("last two digits are not a perfect square\n");
     }
     
+    // check it for last two
     int p = (int)input % 100;
     
     float p1 = (float)p ;
@@ -71,10 +73,10 @@ compng up later
     
     if (p3 == p2 )
     {
-        printf("first 2 digits are perfect square!\n");
+        printf("last two digits are perfect square!\n");
     }
     else
     {
-        printf("first two digits are not a perfect square\n");
+        printf("last two digits are not a perfect square\n");
     }
 }
