@@ -9,200 +9,138 @@ return matrices
 
 #include <stdio.h>
 
-/*
-int p = 0 ;
-int q = 0 ;
 
-void add_matrix(int mat3[p][q], int mat1[p][q], int mat2[p][q]);
-void subtract_matrix(int mat3[p][q], int mat1[p][q], int mat2[p][q]);
-*/
 
 int main(void)
 {
     //size of first matrix
-    
+
+    //struct matrix first ;
+
+    struct matrix {
+      int rows;
+      int columns;
+    };
+
+    struct matrix mat1;
+
     printf("enter no of columns of first matrix: ");
-    int m1;
-    scanf("%d" , &m1);
-   
+    scanf("%d" , &mat1.columns);
+
     printf("enter no of rows of first matrix: ");
-    int m2;
-    scanf("%d" , &m2);
-    
+    scanf("%d" , &mat1.rows);
+
     //size of second matrix
-     
+
+    struct matrix mat2;
+
+
     printf("enter no of columns of second matrix: ");
-    int n1;
-    scanf("%d" , &n1);
-    
+    scanf("%d" , &mat2.columns);
+
     printf("enter no of rows of second matrix: ");
-    int n2;
-    scanf("%d" , &n2);    
-    
+    scanf("%d" , &mat2.rows);
+
     // input first matrix
-    
-    int mat1[m1][m2];    
-    
+
+    int matrix1[mat1.columns][mat1.rows];
+
     printf("enter first matrix\n");
-    
-    for ( int i = 0 ; i < m1 ; i++ )
+
+    for ( int i = 0 ; i < mat1.columns ; i++ )
     {
-        for ( int j = 0 ; j < m2 ; j++ )
+        for ( int j = 0 ; j < mat1.rows ; j++ )
         {
-            scanf("%d", &mat1[i][j]);
+            scanf("%d", &matrix1[i][j]);
         }
     }
-    
+
     // input second matrix
-    
-    int mat2[n1][n2];
-    
+
+    int matrix2[mat2.columns][mat2.rows];
+
     printf("enter second matrix\n");
-    
-    for ( int i = 0 ; i < n1 ; i++ )
+
+    for ( int i = 0 ; i < mat2.columns ; i++ )
     {
-        for ( int j = 0 ; j < n2 ; j++ )
+        for ( int j = 0 ; j < mat2.rows ; j++ )
         {
-            scanf("%d", &mat2[i][j]);
+            scanf("%d", &matrix2[i][j]);
         }
     }
-    
-    // check for same order
-    
-    if ( m1 != n1 && m2 != n2 )
-    {
-        return 1;
-    }
-    
+
     //ensure correct input of mat1 and mat2
+
     printf("\nfirst matrix is \n");
-    
-    for ( int i = 0 ; i < m1 ; i++ )
+
+    for ( int i = 0 ; i < mat1.columns ; i++ )
     {
-        for ( int j = 0 ; j < m2 ; j++ )
+        for ( int j = 0 ; j < mat1.rows ; j++ )
         {
-            printf("%i  ", mat1[i][j]);
+            printf("%i  ", matrix1[i][j]);
         }
         printf("\n");
     }
-    
+
     printf("\nsecond matrix is \n");
-        
-    for ( int i = 0 ; i < m1 ; i++ )
+
+    for ( int i = 0 ; i < mat2.columns ; i++ )
     {
-        for ( int j = 0 ; j < m2 ; j++ )
+        for ( int j = 0 ; j < mat2.rows ; j++ )
         {
-            printf("%i  ", mat2[i][j]);
+            printf("%i  ", matrix2[i][j]);
         }
         printf("\n");
     }
-    
+
     printf("\n");
-    
+
     //add matrices
-    
-    int add_mat[m1][m2];
-    
-    for( int i = 0 ; i < m1 ; i++ )
+
+    int add_mat[mat1.columns][mat1.rows];
+
+    for( int i = 0 ; i < mat1.columns ; i++ )
     {
-        for( int j = 0 ; j < m2 ; j++)
+        for( int j = 0 ; j < mat1.rows ; j++)
         {
-            add_mat[i][j] = mat1[i][j] + mat2[i][j] ;
+            add_mat[i][j] = matrix1[i][j] + matrix2[i][j] ;
         }
     }
-    
+
     //subtract matrices
-    
-    int subtract_mat[m1][m2];
-    
-    for( int i = 0 ; i < m1 ; i++ )
+
+    int subtract_mat[mat1.columns][mat1.rows];
+
+    for( int i = 0 ; i < mat1.columns ; i++ )
     {
-        for( int j = 0 ; j < m2 ; j++)
+        for( int j = 0 ; j < mat1.rows ; j++)
         {
-            subtract_mat[i][j] = mat1[i][j] - mat2[i][j] ;
+            subtract_mat[i][j] = matrix1[i][j] - matrix2[i][j] ;
         }
     }
-    
+
     //output added and subtracted matrices
-    
-    for( int i = 0 ; i < m1 ; i++ )
+
+    printf("\nadded matrix is : \n" );
+
+    for( int i = 0 ; i < mat1.columns ; i++ )
     {
-        for( int j = 0 ; j < m2 ; j++)
+        for( int j = 0 ; j < mat1.rows ; j++)
         {
             printf("%i  ", add_mat[i][j]);
         }
         printf("\n");
     }
-    
-    printf("\n");
-    
-    for( int i = 0 ; i < m1 ; i++ )
+
+    printf("\nsubtracted matrix is : \n");
+
+    for( int i = 0 ; i < mat1.columns ; i++ )
     {
-        for( int j = 0 ; j < m2 ; j++)
+        for( int j = 0 ; j < mat1.rows ; j++)
         {
             printf("%i  ", subtract_mat[i][j]);
         }
         printf("\n");
     }
-    
-}
-    
-    //empty array for addition
-    
-/*    int add_mat[m1][m2];
-    
-    add_matrix(add_mat, mat1, mat2);
-    
-    int subtract_mat[m1][m2];
-    
-    subtract_matrix(subtract_mat, mat1, mat2);
-    
-    // output added matrix
-    
-    for ( int i = 0 ; i < m1 ; i++ )
-    {
-        for ( int j = 0 ; j < m2 ; j++ )
-        {
-            printf("%i  ", add_mat[i][j]);
-        }
-        printf("\n");
-    }
-    
-    printf("\n");
-            
-    // output subtracted matrix
-    
-    for ( int i = 0 ; i < m1 ; i++ )
-    {
-        for ( int j = 0 ; j < m2 ; j++ )
-        {
-            printf("%i  ", subtract_mat[i][j]);
-        }
-        printf("\n");
-    }
-   */ 
 
-
-/*
-void add_matrix(int mat3[p][q], int mat1[p][q], int mat2[p][q])
-{
-    for( int i = 0 ; i < p ; i++ )
-    {
-        for( int j = 0 ; j < q ; j++)
-        {
-            mat3[i][j] = mat1[i][j] + mat2[i][j] ;
-        }
-    }
 }
-
-void subtract_matrix(int mat3[p][q], int mat1[p][q], int mat2[p][q])
-{
-    for( int i = 0 ; i < p ; i++ )
-    {
-        for( int j = 0 ; j < q ; j++)
-        {
-            mat3[i][j] = mat1[i][j] - mat2[i][j] ;
-        }
-    }
-}
-*/
